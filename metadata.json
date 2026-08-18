@@ -1,0 +1,6 @@
+{
+  "name": "LeaseGuardian",
+  "description": "A legal-tech platform protecting tenants in Kenya with AI-powered contract analysis, Rent Restriction Act compliance checking, lawyer retainer matching, and one-click dispute activation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

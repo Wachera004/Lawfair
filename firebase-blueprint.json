@@ -1,0 +1,109 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Registered system user profile",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "password": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "firm": { "type": "string" }
+      },
+      "required": ["id", "username", "password", "name", "role"]
+    },
+    "Contract": {
+      "title": "Contract",
+      "description": "Tenancy lease agreement",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "tenantName": { "type": "string" },
+        "landlordName": { "type": "string" },
+        "landlordPhone": { "type": "string" },
+        "apartmentName": { "type": "string" },
+        "monthlyRent": { "type": "number" },
+        "depositAmount": { "type": "number" },
+        "status": { "type": "string" },
+        "fairnessScore": { "type": "number" },
+        "riskLevel": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "smsStatus": { "type": "string" },
+        "summary": { "type": "string" },
+        "clauses": { "type": "array" },
+        "lawyerId": { "type": "string" },
+        "lawyerName": { "type": "string" },
+        "lastUpdateNotes": { "type": "string" }
+      },
+      "required": ["id", "tenantName", "landlordName", "apartmentName", "monthlyRent", "depositAmount", "status", "fairnessScore", "riskLevel"]
+    },
+    "Dispute": {
+      "title": "Dispute",
+      "description": "Tenant legal dispute and demand letters",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "contractId": { "type": "string" },
+        "disputeType": { "type": "string" },
+        "description": { "type": "string" },
+        "status": { "type": "string" },
+        "demandLetter": { "type": "string" },
+        "activatedAt": { "type": "string" }
+      },
+      "required": ["id", "contractId", "disputeType", "description", "status", "demandLetter", "activatedAt"]
+    },
+    "Lawyer": {
+      "title": "Lawyer",
+      "description": "Registered lawyer profile",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "firm": { "type": "string" },
+        "verified": { "type": "boolean" },
+        "activeRetainersCount": { "type": "number" },
+        "avatar": { "type": "string" }
+      },
+      "required": ["id", "name", "firm", "verified", "activeRetainersCount"]
+    },
+    "MarketStat": {
+      "title": "MarketStat",
+      "description": "Nairobi real estate rent metrics and risk indices",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "neighborhood": { "type": "string" },
+        "avgRent": { "type": "number" },
+        "avgDeposit": { "type": "number" },
+        "retentionRisk": { "type": "string" },
+        "disputeRate": { "type": "string" }
+      },
+      "required": ["id", "neighborhood", "avgRent", "avgDeposit", "retentionRisk", "disputeRate"]
+    },
+    "SMSLog": {
+      "title": "SMSLog",
+      "description": "SMS log for Africa's Talking mock alerts",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "contractId": { "type": "string" },
+        "phone": { "type": "string" },
+        "direction": { "type": "string" },
+        "message": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "contractId", "phone", "direction", "message", "timestamp"]
+    }
+  },
+  "firestore": {
+    "users": { "schema": "User", "description": "System users collection" },
+    "contracts": { "schema": "Contract", "description": "Contracts collection" },
+    "disputes": { "schema": "Dispute", "description": "Tenant disputes collection" },
+    "lawyers": { "schema": "Lawyer", "description": "Lawyers directory collection" },
+    "marketStats": { "schema": "MarketStat", "description": "Market statistics collection" },
+    "smsLogs": { "schema": "SMSLog", "description": "SMS communication logs" }
+  }
+}
